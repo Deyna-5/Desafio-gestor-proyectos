@@ -1,0 +1,38 @@
+<h1 class="text-center my-4">Todos los Proyectos</h1>
+
+<div>
+       <h4>Buscar proyectos por estado</h4>
+       <%= search_form_for @q do |f|%>
+              <%= f.select :status_eq, options_for_select(@busqueda, @q.status_eq), {}, {class: "form-control"} %>
+              <%= f.submit %>
+       <%end%>
+</div>
+<table class="table table-striped">
+       <thead>
+              <tr>
+                     <th>ID</th>
+                     <th>Nombre</th>
+                     <th>Descripcion</th>
+                     <th>Fecha de inicio</th>
+                     <th>Fecha de culminacion</th>
+                     <th>Estatus</th>
+              </tr>
+       </thead>
+       <tbody>
+              <% @projects.each do |project| %>
+                     <tr>
+                            <th> <%= project.id %> </th>
+                            <th> <%= project.name %> </th>
+                            <th> <%= project.description %> </th>
+                            <th> <%= project.started_date %> </th>
+                            <th> <%= project.finished_date %> </th>
+                            <th> <%= project.status %> </th>
+                            <th> <%= link_to "Ver", projects_show_path(project.id) %> </th>
+                            <th> <%= link_to "Editar", projects_edit_path(project.id) %> </th>
+                            <th> <%= link_to "Borrar", projects_destroy_path(project.id), method: :delete, data: {confirm: "Estas seguro?"} %> </th>
+                     </tr>
+              <%end%>
+       </tbody>
+</table>
+
+<button type="button" class="btn btn-light"><%= link_to "Crear nuevo proyecto", projects_new_path  %></button>

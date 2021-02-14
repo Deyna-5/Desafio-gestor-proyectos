@@ -1,0 +1,33 @@
+<div class="jumbotron text-center">
+       
+       <%= form_with(model: project, local: true) do |f| %>
+              <div class="my-3">
+                     <%= f.label "Nombre del projecto" %><br>
+                     <%= f.text_field :name %>
+              </div>
+
+              <div class="my-3">
+                     <%= f.label "Descripcion del proyecto" %><br>
+                     <%= f.text_field :description %>
+              </div>
+
+              <div class="my-3">
+              <%= f.label "Fecha de inicio" %><br>
+              <%= f.date_field :started_date %>
+              </div>
+
+              <div class="my-3">
+              <%= f.label "Fecha de culminacion" %><br>
+              <%= f.date_field :finished_date %>
+              </div>
+
+              <div class="my-3">
+              <%= f.label "Estado del projecto" %><br>
+              <%= f.select :status, Project.statuses.keys %>
+              </div>
+
+              <div class="mt-5">
+              <%= f.submit  "Subir" %>
+              </div>
+       <%end%>
+</div>

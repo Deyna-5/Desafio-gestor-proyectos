@@ -1,0 +1,26 @@
+<h1 class="text-center my-5">Info del proyecto <%= @project.name%></h1>
+
+<div class="jumbotron text-center">
+       <div >
+              <p class="d-inline mr-4">Nombre: </p>
+              <%= @project.name %>
+       </div>
+       <div>
+              <p class="d-inline mr-4">Contenido:</p>
+              <%= @project.description %>
+       </div>
+       <div> 
+              <p class="d-inline mr-4">Fecha de inicio:</p>
+              <%= @project.started_date %>
+       </div>
+       <div>
+              <p class="d-inline mr-4">Fecha de termino:</p>
+              <%= @project.finished_date %>
+       </div>
+       <div>
+              <p class="d-inline mr-4">Estado del proyecto:</p>
+              <%= @project.status %>
+       </div>
+</div>
+
+<button type="button" class="btn btn-light"><%= link_to "Atras", root_path  %></button>
